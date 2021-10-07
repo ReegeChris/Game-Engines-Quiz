@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 //Code referenced from: https://gamedev.stackexchange.com/questions/88433/how-to-reverse-gravity-in-unity
+//https://www.codegrepper.com/code-examples/csharp/change+color+of+object+unity+c%23
 
 //Christian Riggi
 //100752293
@@ -10,6 +12,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //Import DLL
+    [DllImport("Quiz DLL Change")]
+    
+    //Import Function from DLL
+    private static extern int ChangeColour(int c1, int c2, int c3);
 
     private Rigidbody rb;
     private float speed;
@@ -55,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
                     rb.AddForce(new Vector3(0f, gravityForce, 0f), ForceMode.Impulse);
 
                     //Change the Gravity value to negative 1
-                   // Gravity = -1;
+                    // Gravity = -1;
+
+                  //  gameObject.GetComponent<Renderer>().material.color = new Color(ChangeColour(45, 109, 66));
 
                 }
                 //Since Gravity is set to -1 once the player flips to the other platform, 
@@ -70,9 +79,11 @@ public class PlayerMovement : MonoBehaviour
                    // rb.velocity = transform.up * -jumpForce * Time.deltaTime;
                     rb.AddForce(new Vector3(0f, -gravityForce, 0f), ForceMode.Impulse);
 
-                    
+
                     //Change the Gravity value to positive 1
-                   // Gravity = 1;
+                    // Gravity = 1;
+
+                  //  gameObject.GetComponent<Renderer>().material.color = new Color(ChangeColour(145, 29, 64));
 
                 }
             }
