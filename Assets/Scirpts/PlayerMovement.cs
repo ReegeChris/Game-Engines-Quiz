@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
             isGrounded = true;
 
-            Debug.Log("On Ground");
+          //  Debug.Log("On Ground");
         
         }
 
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
             isGrounded = false;
 
-            Debug.Log("Off Ground");
+          //  Debug.Log("Off Ground");
         }
 
 
